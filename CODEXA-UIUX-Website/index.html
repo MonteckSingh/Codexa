@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CODEXA — Social Media Growth, Organic SEO Dominance & Custom Web/App Development. Interactive client workspace, instant audits, and transparent sprint terms.">
+  <meta name="theme-color" content="#070a10">
+  <title>CODEXA — Social Media Growth, SEO &amp; Custom Web/App Systems</title>
+  
+  <!-- Optimized Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       CODEXA POWERFUL, SUBTLE & CLEAN DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-canvas: #070a10;
+      --bg-surface: #0c111c;
+      --bg-surface-elevated: #111827;
+      --bg-card: rgba(14, 20, 32, 0.75);
+      --bg-card-hover: rgba(20, 30, 48, 0.9);
+      --bg-input: #080c14;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-active: rgba(59, 130, 246, 0.5);
+      
+      --brand-blue: #3b82f6;
+      --brand-blue-hover: #2563eb;
+      --brand-sky: #38bdf8;
+      --brand-emerald: #10b981;
+      --brand-violet: #8b5cf6;
+      --brand-amber: #f59e0b;
+      --brand-rose: #f43f5e;
+      
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --text-dim: #475569;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      
+      --transition: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 15px; }
+    
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle background grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at 50% 10%, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at 50% 10%, black 40%, transparent 85%);
+      z-index: -2;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;
+      height: 420px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: var(--bg-canvas); }
+    ::-webkit-scrollbar-thumb { background: #1a2233; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2b3752; }
+
+    /* Layout */
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-sans);
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+    .mono { font-family: var(--font-mono); }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Eyebrow & Status Pills */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-sky);
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-emerald);
+      box-shadow: 0 0 6px var(--brand-emerald);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #3b82f6;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      border-color: #60a5fa;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+      border-color: var(--border-medium);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .btn-emerald {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--brand-emerald);
+    }
+    .btn-emerald:hover {
+      background: var(--brand-emerald);
+      color: #030712;
+      border-color: var(--brand-emerald);
+    }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border-medium);
+      color: var(--text-secondary);
+    }
+    .btn-outline:hover {
+      border-color: var(--brand-sky);
+      color: #fff;
+    }
+    .btn-sm { padding: 7px 14px; font-size: 0.8rem; }
+    .btn-lg { padding: 13px 26px; font-size: 0.95rem; }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: #0f172a;
+      border: 1px solid var(--brand-sky);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-msg.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      width: min(1200px, calc(100% - 40px));
+      margin: 16px auto 0;
+      height: 64px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: rgba(12, 17, 28, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      background: #141f36;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      display: grid;
+      place-items: center;
+      color: var(--brand-sky);
+    }
+    .brand-name {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .brand-name span { color: var(--brand-sky); }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+    .nav-item {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--transition);
+      font-weight: 400;
+    }
+    .nav-item:hover { color: #ffffff; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      width: 36px;
+      height: 36px;
+      color: #fff;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ==========================================================================
+       HERO SECTION WITH 3-IN-1 ENGINE SHOWCASE
+       ========================================================================== */
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+      max-width: 940px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 4.3vw, 3.6rem);
+      line-height: 1.12;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    /* 3-in-1 Engine Interactive Visualizer */
+    .showcase-dock {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      text-align: left;
+      margin-top: 20px;
+    }
+    .showcase-tabs-nav {
+      display: flex;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+    .sc-tab-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .sc-tab-btn.active {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #fff;
+    }
+
+    .sc-panel {
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+    .sc-panel.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(3px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Social Metric Grid */
+    .social-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .social-metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .social-metric-card small {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .social-metric-card b {
+      font-size: 1.2rem;
+      font-family: var(--font-sans);
+      color: #fff;
+    }
+
+    /* SEO Mockup */
+    .seo-serp-box {
+      background: #080c14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .serp-url {
+      font-size: 0.72rem;
+      color: var(--brand-emerald);
+      font-family: var(--font-mono);
+      margin-bottom: 2px;
+    }
+    .serp-title {
+      font-size: 0.92rem;
+      color: var(--brand-sky);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .serp-desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* Dev Terminal Mockup */
+    .dev-terminal-box {
+      background: #060910;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: #94a3b8;
+    }
+
+    /* Trust Metrics Strip */
+    .trust-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      text-align: left;
+      margin-top: 26px;
+    }
+    .metric-item b {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .metric-item span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* ==========================================================================
+       SECTION COMMONS
+       ========================================================================== */
+    .section {
+      padding: 60px 0;
+      position: relative;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 34px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 2.6vw, 2.25rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       THE 3 PILLARS: SOCIAL, SEO, CUSTOM DEV
+       ========================================================================== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color var(--transition);
+    }
+    .pillar-card:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-card-hover);
+    }
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--brand-sky);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    .pillar-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .pillar-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .pillar-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .pillar-deliverables li {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pillar-deliverables li::before {
+      content: "›";
+      color: var(--brand-sky);
+      font-size: 0.95rem;
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       "WORK ALONG WITH US" - CLIENT WORKSPACE & POWERFUL CONTROL CENTER
+       ========================================================================== */
+    .workspace-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .workspace-tabs-bar {
+      display: flex;
+      background: #080c14;
+      border-bottom: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+    .ws-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 13px 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all var(--transition);
+    }
+    .ws-tab-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .ws-tab-btn.active {
+      color: var(--text-primary);
+      border-bottom-color: var(--brand-blue);
+      background: rgba(59, 130, 246, 0.05);
+      font-weight: 600;
+    }
+
+    .ws-tab-content {
+      padding: 26px;
+    }
+    .ws-panel {
+      display: none;
+      animation: fadeIn 0.2s ease forwards;
+    }
+    .ws-panel.active { display: block; }
+
+    /* TAB 1: DYNAMIC SOLUTION ARCHITECT & VOLUME SLIDERS */
+    .scope-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+    .slider-control-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+    }
+    .slider-header b {
+      color: var(--brand-sky);
+    }
+    .range-input {
+      width: 100%;
+      accent-color: var(--brand-blue);
+      cursor: pointer;
+    }
+
+    .scope-select-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .scope-card-option {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .scope-card-option:hover {
+      border-color: var(--border-medium);
+      background: var(--bg-card-hover);
+    }
+    .scope-card-option.selected {
+      border-color: rgba(59, 130, 246, 0.4);
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .scope-card-option input {
+      margin-top: 3px;
+      accent-color: var(--brand-blue);
+    }
+    .scope-card-option strong {
+      display: block;
+      font-size: 0.82rem;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .scope-card-option p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Live Summary Panel */
+    .scope-summary-panel {
+      background: #080c14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .summary-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .scope-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .scope-list li {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .scope-list li::before {
+      content: "✓";
+      color: var(--brand-emerald);
+      font-weight: bold;
+    }
+
+    .scope-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+    .scope-stats-row small {
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      display: block;
+      text-transform: uppercase;
+    }
+    .scope-stats-row b {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: #fff;
+    }
+
+    /* TAB 2: 3-PILLAR AUDIT ENGINE */
+    .audit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .form-group-clean {
+      margin-bottom: 14px;
+    }
+    .form-group-clean label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+      font-family: var(--font-mono);
+    }
+    .form-group-clean select, .form-group-clean input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      outline: none;
+    }
+    .form-group-clean select:focus, .form-group-clean input:focus {
+      border-color: var(--brand-blue);
+    }
+
+    .audit-result-panel {
+      background: #080c14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+    .score-breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .score-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      text-align: center;
+    }
+    .score-chip small {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      display: block;
+    }
+    .score-chip b {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      color: var(--brand-amber);
+    }
+    .score-chip b.good { color: var(--brand-emerald); }
+    .score-chip b.low { color: var(--brand-rose); }
+
+    /* TAB 3: KANBAN SPRINT ROADMAP */
+    .kanban-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .kanban-column {
+      background: #080c14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+    }
+    .kanban-col-title {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .kanban-task {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 9px 10px;
+      margin-bottom: 7px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .kanban-task:hover {
+      border-color: var(--brand-sky);
+      transform: translateY(-1px);
+    }
+    .kanban-task strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .kanban-task span {
+      color: var(--text-muted);
+      font-size: 0.68rem;
+    }
+
+    /* TAB 4: BRIEF & SOW STUDIO WITH INSTANT ACTIONS */
+    .brief-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .template-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .template-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .template-chip.active {
+      background: var(--brand-blue);
+      color: #fff;
+      border-color: var(--brand-blue);
+    }
+    .brief-box {
+      width: 100%;
+      height: 170px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      resize: vertical;
+      outline: none;
+    }
+    .sow-preview {
+      background: #05080e;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      height: 240px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    /* TAB 5: SCHEDULER & TIMEZONE CONVERT */
+    .calendar-clean {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin: 10px 0 14px;
+    }
+    .cal-clean-day {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-family: var(--font-mono);
+    }
+    .cal-clean-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      color: var(--text-secondary);
+      padding: 8px 0;
+      font-size: 0.74rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      text-align: center;
+    }
+    .cal-clean-btn.active {
+      background: var(--brand-blue);
+      color: #fff;
+      border-color: var(--brand-blue);
+    }
+    .cal-clean-btn.disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       TERMS & SLAS
+       ========================================================================== */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .tier-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tier-card.featured {
+      background: #0b1120;
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+    .tier-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+    }
+    .tier-duration {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--brand-sky);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .tier-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+    .tier-list li {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    .sla-terms-box {
+      background: #080c14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+    .sla-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .sla-item strong {
+      display: block;
+      font-size: 0.82rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .sla-item p {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       MODAL & WIZARD
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 5, 10, 0.88);
+      backdrop-filter: blur(12px);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition);
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-dialog {
+      background: #0c111d;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      width: min(580px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 26px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+    .modal-close:hover { color: #fff; }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 45px 0 25px;
+      margin-top: 50px;
+      background: #04070c;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .pillars-grid, .scope-layout, .audit-layout, .brief-layout, .tiers-grid, .sla-grid { grid-template-columns: 1fr; }
+      .trust-metrics { grid-template-columns: repeat(2, 1fr); }
+      .kanban-grid { grid-template-columns: 1fr 1fr; }
+      .social-matrix-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .scope-select-grid { grid-template-columns: 1fr; }
+      .trust-metrics { grid-template-columns: 1fr; }
+      .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+      .site-header { padding: 0 14px; }
+      .kanban-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="ambient-glow"></div>
+  <div class="toast-msg" id="toast"><span>✓</span> <span id="toastText">Action completed</span></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand-logo" href="#top">
+      <div class="brand-mark">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div class="brand-name">CODE<span>XA</span></div>
+    </a>
+
+    <nav class="nav-links">
+      <a class="nav-item" href="#services">Services</a>
+      <a class="nav-item" href="#workspace">Solution Builder</a>
+      <a class="nav-item" href="calendar.html" style="color: var(--brand-sky); font-weight: 500;">📅 Sprint Calendar</a>
+      <a class="nav-item" href="#terms">Terms &amp; SLAs</a>
+      <a class="nav-item" href="#cases">Case Studies</a>
+      <a class="nav-item" href="#partnerships">Sprint Models</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-secondary btn-sm" href="calendar.html" title="Open Calendar Hub">
+        📅 Calendar
+      </a>
+      <button class="btn btn-primary btn-sm" onclick="openLaunchModal()">
+        Start Project
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero container">
+      <div class="eyebrow"><span class="status-dot"></span> Social Media Growth · SEO Ranking · Custom Web &amp; Apps</div>
+      <h1>We turn social media into attention, <span class="text-gradient">SEO into discovery</span>, and custom apps into revenue.</h1>
+      <p>
+        Codexa is your unified digital growth partner. We handle viral social media content, Google search ranking, and engineer bespoke websites or mobile apps built precisely to your vision.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary btn-lg" href="#workspace">
+          Build Your Custom Solution Plan →
+        </a>
+        <button class="btn btn-secondary btn-lg" onclick="switchWsTab('tab-audit'); document.getElementById('workspace').scrollIntoView({behavior:'smooth'});">
+          Run 60s Social &amp; SEO Audit
+        </button>
+      </div>
+
+      <!-- 3-in-1 Engine Interactive Showcase -->
+      <div class="showcase-dock">
+        <div class="showcase-tabs-nav">
+          <button class="sc-tab-btn active" onclick="switchShowcase('sc-social', this)">📱 1. Social Media Growth Engine</button>
+          <button class="sc-tab-btn" onclick="switchShowcase('sc-seo', this)">🔍 2. SEO &amp; Search Authority</button>
+          <button class="sc-tab-btn" onclick="switchShowcase('sc-dev', this)">💻 3. Custom Web &amp; App Build</button>
+        </div>
+
+        <!-- Social Showcase -->
+        <div class="sc-panel active" id="sc-social">
+          <div class="social-matrix-grid">
+            <div class="social-metric-card">
+              <small>ORGANIC MONTHLY REACH</small>
+              <b style="color: var(--brand-sky);">+412,000 Views</b>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Viral Reels, Shorts &amp; Carousel hooks engineered for retention.</p>
+            </div>
+            <div class="social-metric-card">
+              <small>COMMUNITY ENGAGEMENT RATE</small>
+              <b style="color: var(--brand-emerald);">8.4% Avg Rate</b>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Active DM conversions &amp; comment community nurture.</p>
+            </div>
+            <div class="social-metric-card">
+              <small>CROSS-PLATFORM DISTRIBUTION</small>
+              <b style="color: var(--brand-violet);">5 Channels Synced</b>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Instagram, LinkedIn, YouTube, TikTok &amp; X unified.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO Showcase -->
+        <div class="sc-panel" id="sc-seo">
+          <div class="seo-serp-box">
+            <div class="serp-url">https://yourbusiness.com › solutions</div>
+            <div class="serp-title">#1 Ranked Category Leader | Verified Organic Traffic &amp; Inquiries</div>
+            <div class="serp-desc">High-intent keyword dominance, Google Maps Local Pack authority, and programmatic search architecture engineered by CODEXA.</div>
+          </div>
+        </div>
+
+        <!-- Dev Showcase -->
+        <div class="sc-panel" id="sc-dev">
+          <div class="dev-terminal-box">
+            <span style="color: var(--brand-emerald);">✓ Next.js 15 SSR Platform</span>: Sub-800ms load time Worldwide<br>
+            <span style="color: var(--brand-sky);">✓ Custom User Features</span>: Custom booking portal, e-commerce checkout, or mobile iOS/Android app built exactly to your specs.<br>
+            <span style="color: var(--brand-amber);">✓ Automated Operations</span>: 1-click WhatsApp CRM lead sync.
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Metrics Bar -->
+      <div class="trust-metrics">
+        <div class="metric-item">
+          <b>4.8M+</b>
+          <span>Organic Social Views</span>
+        </div>
+        <div class="metric-item">
+          <b>Top 3</b>
+          <span>Google Search Ranks</span>
+        </div>
+        <div class="metric-item">
+          <b>&lt;1.0s</b>
+          <span>Web &amp; App Load Speed</span>
+        </div>
+        <div class="metric-item">
+          <b>100%</b>
+          <span>Code &amp; Content Ownership</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CORE SERVICES: SOCIAL, SEO, CUSTOM DEV
+         ========================================================================== -->
+    <section class="section container" id="services">
+      <div class="section-header">
+        <div class="eyebrow"><span class="status-dot"></span> Full Growth Engine</div>
+        <h2 class="section-title">Everything Your Business Needs To Win</h2>
+        <p class="section-subtitle">
+          We combine social presence, organic search dominance, and custom software engineering into a unified growth engine.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1: Social Media -->
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-icon">📱</div>
+            <h3>Social Media Handling &amp; Growth</h3>
+            <p>End-to-end content production and distribution that turns followers into loyal, paying clients.</p>
+            <ul class="pillar-deliverables">
+              <li>Viral Short-Form Reels, TikToks &amp; YouTube Shorts</li>
+              <li>High-Impact Carousel &amp; Static Graphics</li>
+              <li>Daily Posting &amp; Active DM Lead Nurturing</li>
+              <li>Influencer Outreach &amp; Meta Paid Ad Amplification</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="selectServiceInModal('Social Media Handling & Growth')">Configure Social Scope →</button>
+        </div>
+
+        <!-- Pillar 2: SEO -->
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-icon">🔍</div>
+            <h3>SEO &amp; Search Dominance</h3>
+            <p>Make your business the undeniable #1 choice when ready-to-buy customers search on Google.</p>
+            <ul class="pillar-deliverables">
+              <li>Local Google Business Profile &amp; Maps SEO</li>
+              <li>High-Intent Commercial Keyword Ranking</li>
+              <li>Technical SEO &amp; Core Web Vitals Optimization</li>
+              <li>Authority Backlinks &amp; Programmatic Content</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="selectServiceInModal('SEO & Search Dominance')">Configure SEO Scope →</button>
+        </div>
+
+        <!-- Pillar 3: Custom Web & App -->
+        <div class="pillar-card">
+          <div>
+            <div class="pillar-icon">💻</div>
+            <h3>Custom Web &amp; App Development</h3>
+            <p>Bespoke web platforms, SaaS applications, or mobile apps engineered precisely to your workflow.</p>
+            <ul class="pillar-deliverables">
+              <li>Next.js 15 High-Speed Conversion Websites</li>
+              <li>Cross-Platform iOS &amp; Android Mobile Apps</li>
+              <li>Custom Booking, CRM &amp; Checkout Portals</li>
+              <li>Automated WhatsApp &amp; AI Customer Reply Bots</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="selectServiceInModal('Custom Web & App Development')">Configure Web/App Scope →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         "WORK ALONG WITH US" - INTERACTIVE CLIENT WORKSPACE
+         ========================================================================== -->
+    <section class="section container" id="workspace">
+      <div class="section-header">
+        <div class="eyebrow"><span class="status-dot"></span> Interactive Client Hub</div>
+        <h2 class="section-title">Configure Your Solution &amp; Work With Us</h2>
+        <p class="section-subtitle">
+          Fine-tune monthly content volume, SEO parameters, and custom app requirements. Everything syncs directly with our engineering and growth squads.
+        </p>
+      </div>
+
+      <div class="workspace-container">
+        <!-- Tab Bar -->
+        <div class="workspace-tabs-bar">
+          <button class="ws-tab-btn active" onclick="switchWsTab('tab-scope', this)">1. Custom Solution Architect</button>
+          <button class="ws-tab-btn" onclick="switchWsTab('tab-audit', this)">2. Social &amp; SEO Audit</button>
+          <button class="ws-tab-btn" onclick="switchWsTab('tab-kanban', this)">3. Sprint Execution Plan</button>
+          <button class="ws-tab-btn" onclick="switchWsTab('tab-brief', this)">4. Brief &amp; SOW Studio</button>
+          <button class="ws-tab-btn" onclick="switchWsTab('tab-booking', this)">5. Schedule Strategy Session</button>
+        </div>
+
+        <div class="ws-tab-content">
+          <!-- TAB 1: DYNAMIC SOLUTION ARCHITECT & VOLUME SLIDERS -->
+          <div class="ws-panel active" id="tab-scope">
+            <div class="scope-layout">
+              <div>
+                <!-- Dynamic Video Volume Slider -->
+                <div class="slider-control-group">
+                  <div class="slider-header">
+                    <span>Monthly Social Video Volume (Reels/Shorts)</span>
+                    <b id="videoCountVal">16 Videos / Month</b>
+                  </div>
+                  <input type="range" min="8" max="32" step="4" value="16" class="range-input" id="videoSlider" oninput="updateVideoCount(this.value)">
+                </div>
+
+                <div class="scope-select-grid">
+                  <label class="scope-card-option selected">
+                    <input type="checkbox" checked data-name="Social Media Management (Daily Posting & DMs)" data-weeks="2" onchange="calcScope()">
+                    <div>
+                      <strong>Social Content &amp; DMs</strong>
+                      <p>Scripting, video editing, captions &amp; daily publishing.</p>
+                    </div>
+                  </label>
+
+                  <label class="scope-card-option selected">
+                    <input type="checkbox" checked data-name="Local Google Maps & Keyword SEO Dominance" data-weeks="2" onchange="calcScope()">
+                    <div>
+                      <strong>Google Maps &amp; SEO Ranking</strong>
+                      <p>Top 3 local search ranking &amp; technical schema.</p>
+                    </div>
+                  </label>
+
+                  <label class="scope-card-option selected">
+                    <input type="checkbox" checked data-name="Custom Next.js Web Platform / App Build" data-weeks="3" onchange="calcScope()">
+                    <div>
+                      <strong>Custom Website / Web App</strong>
+                      <p>Bespoke frontend built exactly to your specs.</p>
+                    </div>
+                  </label>
+
+                  <label class="scope-card-option">
+                    <input type="checkbox" data-name="Cross-Platform iOS/Android Mobile App" data-weeks="4" onchange="calcScope()">
+                    <div>
+                      <strong>Mobile App (iOS &amp; Android)</strong>
+                      <p>React Native cross-platform build with push alerts.</p>
+                    </div>
+                  </label>
+
+                  <label class="scope-card-option">
+                    <input type="checkbox" data-name="Automated WhatsApp CRM Lead Routing" data-weeks="1" onchange="calcScope()">
+                    <div>
+                      <strong>AI &amp; WhatsApp Automation</strong>
+                      <p>24/7 instant lead qualification &amp; CRM webhook.</p>
+                    </div>
+                  </label>
+
+                  <label class="scope-card-option">
+                    <input type="checkbox" data-name="Paid Meta & Google Ads Scaling" data-weeks="2" onchange="calcScope()">
+                    <div>
+                      <strong>Paid Social &amp; Search Ads</strong>
+                      <p>High-ROAS retargeting and creative testing matrix.</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Live Summary Panel -->
+              <div class="scope-summary-panel">
+                <div>
+                  <div class="summary-title">
+                    <span>Configured Solution Plan</span>
+                    <span class="mono" style="font-size: 0.72rem; color: var(--brand-emerald);">● READY</span>
+                  </div>
+                  <ul class="scope-list" id="scopeList">
+                    <li>Social Media Management (16 Videos)</li>
+                    <li>Local Google Maps &amp; Keyword SEO</li>
+                    <li>Custom Next.js Web Platform / App Build</li>
+                  </ul>
+                  <div class="scope-stats-row">
+                    <div>
+                      <small>Sprint Timeline</small>
+                      <b id="estWeeks">3 - 4 Weeks</b>
+                    </div>
+                    <div>
+                      <small>Est. Reach Velocity</small>
+                      <b id="estRoas" style="color: var(--brand-emerald);">4.2x Growth</b>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-direction: column;">
+                  <button class="btn btn-primary" style="width: 100%;" onclick="openLaunchModal()">
+                    Submit Scope &amp; Assign Squad →
+                  </button>
+                  <button class="btn btn-emerald btn-sm" onclick="sendScopeToWhatsApp()">
+                    <span>💬 Send Direct Scope to WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: 3-PILLAR AUDIT ENGINE -->
+          <div class="ws-panel" id="tab-audit">
+            <div class="audit-layout">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 10px;">60-Second Growth &amp; Tech Diagnostic</h3>
+                <div class="form-group-clean">
+                  <label>Business Category</label>
+                  <select id="auditInd" onchange="runAudit()">
+                    <option value="fnb">Food &amp; Hospitality / Restaurant</option>
+                    <option value="ecom">E-Commerce &amp; D2C Brand</option>
+                    <option value="services" selected>Professional Clinic, Agency or Studio</option>
+                    <option value="saas">Tech SaaS &amp; Software</option>
+                  </select>
+                </div>
+                <div class="form-group-clean">
+                  <label>Biggest Growth Challenge</label>
+                  <select id="auditBot" onchange="runAudit()">
+                    <option value="social">Social media reach is stagnant / Low engagement</option>
+                    <option value="seo" selected>Not ranking on Google when customers search locally</option>
+                    <option value="dev">Need a custom website/app built for customer ordering or booking</option>
+                  </select>
+                </div>
+                <div class="form-group-clean">
+                  <label>Instagram Handle or Website (Optional)</label>
+                  <input type="text" id="auditUrl" placeholder="@yourbrand or https://yourbrand.com" oninput="runAudit()">
+                </div>
+                <button class="btn btn-secondary" onclick="runAudit()" style="width: 100%;">Re-Calculate Diagnosis</button>
+              </div>
+
+              <div class="audit-result-panel">
+                <div class="score-breakdown-grid">
+                  <div class="score-chip">
+                    <small>SOCIAL HOOK</small>
+                    <b id="scoreSocial">62/100</b>
+                  </div>
+                  <div class="score-chip">
+                    <small>GOOGLE SEO</small>
+                    <b id="scoreSeo" class="low">54/100</b>
+                  </div>
+                  <div class="score-chip">
+                    <small>APP SPEED</small>
+                    <b id="scoreDev" class="good">78/100</b>
+                  </div>
+                </div>
+
+                <strong style="font-size: 0.95rem;" id="auditTitle">SEO &amp; Local Discovery Gap Detected</strong>
+                <p style="font-size: 0.74rem; color: var(--text-muted); margin: 4px 0 12px;" id="auditDesc">
+                  Competitors capturing 70%+ of local Google searches in your category.
+                </p>
+
+                <div style="font-size: 0.74rem; color: var(--brand-sky); font-family: var(--font-mono); margin-bottom: 6px;">RECOMMENDED 30-DAY EXECUTION MATRIX:</div>
+                <ul class="scope-list" id="auditRoadmap">
+                  <li>Complete Google Business Profile optimization &amp; Local Maps ranking.</li>
+                  <li>Produce 16 high-retention Instagram Reels showcasing your core offer.</li>
+                  <li>Build a fast Next.js landing engine with direct WhatsApp inquiry CTA.</li>
+                </ul>
+
+                <button class="btn btn-primary btn-sm" style="width: 100%; margin-top: 6px;" onclick="importAuditToPlan()">
+                  Apply Fix Roadmap To Custom Scope →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: KANBAN ROADMAP WITH DELIVERABLE INSPECTION -->
+          <div class="ws-panel" id="tab-kanban">
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 14px;">
+              Agile 4-week execution cycle across Social, SEO, and Custom Software (Click any card to inspect deliverables):
+            </p>
+            <div class="kanban-grid">
+              <div class="kanban-column">
+                <div class="kanban-col-title">WEEK 1: STRATEGY &amp; SCRIPTS</div>
+                <div class="kanban-task" onclick="showTaskDetail('Content Hook Matrix', '16 viral video scripts with hook variations, caption templates, and visual storyboard.')">
+                  <strong>Content Hook Matrix</strong>
+                  <span>16 viral video scripts &amp; moodboard</span>
+                </div>
+                <div class="kanban-task" onclick="showTaskDetail('SEO Keyword Blueprint', 'Top-intent buyer keywords, local competitor gap audit, and Google schema structure.')">
+                  <strong>SEO Keyword Blueprint</strong>
+                  <span>Top-intent commercial keyword audit</span>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-col-title">WEEK 2: PRODUCTION &amp; DEV</div>
+                <div class="kanban-task" onclick="showTaskDetail('Video Batch Production', 'High-retention short-form video batch editing with kinetic typography and audio mastering.')">
+                  <strong>Video &amp; Asset Editing</strong>
+                  <span>Short-form batch editing with captions</span>
+                </div>
+                <div class="kanban-task" onclick="showTaskDetail('Custom Web/App Scaffold', 'Production Next.js 15 repository setup, server-side rendering, and responsive Figma token integration.')">
+                  <strong>Custom Web/App Scaffold</strong>
+                  <span>Next.js core &amp; responsive UI build</span>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-col-title">WEEK 3: SEO &amp; INTEGRATIONS</div>
+                <div class="kanban-task" onclick="showTaskDetail('Google Local Pack Sync', 'Google Business Profile verification, structured rich snippets, and local citation indexing.')">
+                  <strong>On-Page &amp; Schema SEO</strong>
+                  <span>Google indexation &amp; local pack sync</span>
+                </div>
+                <div class="kanban-task" onclick="showTaskDetail('WhatsApp & CRM Webhooks', 'Automated 1-click WhatsApp lead routing, automated greeting bots, and CRM deal pipeline sync.')">
+                  <strong>WhatsApp &amp; CRM Sync</strong>
+                  <span>Automated inquiry dispatch</span>
+                </div>
+              </div>
+
+              <div class="kanban-column">
+                <div class="kanban-col-title">WEEK 4: ROLLOUT &amp; SCALE</div>
+                <div class="kanban-task" onclick="showTaskDetail('Publishing & Ad Scaling', 'Activation of daily publishing schedule across Instagram, YouTube & TikTok + Meta ad boosts.')">
+                  <strong>Live Publishing &amp; Ads</strong>
+                  <span>Daily schedule activation &amp; Meta boosts</span>
+                </div>
+                <div class="kanban-task" onclick="showTaskDetail('Weekly Analytics Reporting', 'Live tracking dashboard reporting organic impressions, Google keyword rank climbs, and lead volume.')">
+                  <strong>Analytics &amp; Optimization</strong>
+                  <span>Weekly rank and reach performance report</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: BRIEF & SOW STUDIO WITH EXPORT SUITE -->
+          <div class="ws-panel" id="tab-brief">
+            <div class="brief-layout">
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">Select starting template:</p>
+                <div class="template-btn-row">
+                  <button class="template-chip active" onclick="setBrief('social', this)">Social + SEO Growth</button>
+                  <button class="template-chip" onclick="setBrief('web', this)">Custom Website/App</button>
+                  <button class="template-chip" onclick="setBrief('full', this)">Full 360° Growth Loop</button>
+                </div>
+                <textarea class="brief-box" id="briefText" oninput="renderSow()">### Project Objective:
+Grow brand visibility through 16+ monthly social reels/posts, rank in top 3 on Google for local keywords, and build a high-speed custom website.
+
+### Target Launch:
+Within 30 days from sprint kickoff.</textarea>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button class="btn btn-secondary btn-sm" onclick="copySow()">📋 Copy SOW</button>
+                  <button class="btn btn-secondary btn-sm" onclick="downloadSowFile()">💾 Download SOW</button>
+                  <button class="btn btn-primary btn-sm" onclick="openLaunchModal()">Submit SOW →</button>
+                </div>
+              </div>
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 8px;">Live Statement of Work (SOW):</p>
+                <div class="sow-preview" id="sowView">CODEXA STATEMENT OF WORK (SOW)
+========================================
+Scope: Social Media Handling, SEO & Custom App/Web
+Terms: 100% Asset Ownership, Guaranteed Posting Schedule, Sub-1s App SLA.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 5: SCHEDULER & TIMEZONE SYNC -->
+          <div class="ws-panel" id="tab-booking">
+            <div class="audit-layout">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Schedule Growth Strategy Session</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px;">30-minute direct call with our Growth Director &amp; Lead Engineer.</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <span style="font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted);">TIMEZONE:</span>
+                  <select id="timezoneSelect" style="background: #080c14; border: 1px solid var(--border-subtle); color: #fff; font-size: 0.72rem; border-radius: 4px; padding: 2px 6px;">
+                    <option>India (IST, UTC+5:30)</option>
+                    <option>United States (EST, UTC-5)</option>
+                    <option>United States (PST, UTC-8)</option>
+                    <option>United Kingdom (GMT/BST)</option>
+                    <option>Dubai (GST, UTC+4)</option>
+                  </select>
+                </div>
+
+                <div class="calendar-clean">
+                  <div class="cal-clean-day">M</div><div class="cal-clean-day">T</div><div class="cal-clean-day">W</div>
+                  <div class="cal-clean-day">T</div><div class="cal-clean-day">F</div><div class="cal-clean-day">S</div><div class="cal-clean-day">S</div>
+                  <button class="cal-clean-btn disabled">18</button><button class="cal-clean-btn disabled">19</button><button class="cal-clean-btn disabled">20</button>
+                  <button class="cal-clean-btn active" onclick="setDay(this, 'Aug 21')">21</button>
+                  <button class="cal-clean-btn" onclick="setDay(this, 'Aug 22')">22</button>
+                  <button class="cal-clean-btn" onclick="setDay(this, 'Aug 23')">23</button>
+                  <button class="cal-clean-btn" onclick="setDay(this, 'Aug 24')">24</button>
+                </div>
+
+                <div class="template-btn-row">
+                  <button class="template-chip active" onclick="setTime(this, '11:00 AM')">11:00 AM</button>
+                  <button class="template-chip" onclick="setTime(this, '03:00 PM')">03:00 PM</button>
+                  <button class="template-chip" onclick="setTime(this, '06:30 PM')">06:30 PM</button>
+                  <button class="template-chip" onclick="setTime(this, '09:00 PM')">09:00 PM</button>
+                </div>
+              </div>
+
+              <div class="audit-result-panel">
+                <h4 style="font-size: 0.92rem; margin-bottom: 10px;">Confirm Strategy Session</h4>
+                <div class="form-group-clean">
+                  <label>Full Name</label>
+                  <input type="text" id="bName" placeholder="Your Name">
+                </div>
+                <div class="form-group-clean">
+                  <label>Work Email</label>
+                  <input type="email" id="bEmail" placeholder="you@company.com">
+                </div>
+                <div class="form-group-clean">
+                  <label>WhatsApp / Phone</label>
+                  <input type="tel" id="bPhone" placeholder="+91 ...">
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="confirmCall()">Confirm Strategy Call</button>
+                <p id="bSuccess" style="display: none; font-size: 0.76rem; color: var(--brand-emerald); margin-top: 8px;">✓ Confirmed! Meeting invite dispatched to your email.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TRANSPARENT TERMS & PARTNERSHIP TIERS
+         ========================================================================== -->
+    <section class="section container" id="terms">
+      <div class="section-header">
+        <div class="eyebrow"><span class="status-dot"></span> Transparent Partnership</div>
+        <h2 class="section-title">Sprint Models &amp; Institutional Terms</h2>
+        <p class="section-subtitle">Zero lock-ins, guaranteed content schedules, and full asset ownership.</p>
+      </div>
+
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <div>
+            <h4>Social &amp; SEO Velocity Sprint</h4>
+            <span class="tier-duration">⏱ Monthly Rolling Retainer</span>
+            <ul class="tier-list">
+              <li>✓ 16-20 Viral Short-Form Reels &amp; Posts</li>
+              <li>✓ Daily Posting &amp; Active DM Management</li>
+              <li>✓ Local Google Maps &amp; Keyword SEO</li>
+              <li>✓ Weekly Performance &amp; Lead Reports</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="selectServiceInModal('Social & SEO Velocity Sprint')">Select Social/SEO Sprint</button>
+        </div>
+
+        <div class="tier-card featured">
+          <div>
+            <h4>Full Growth Loop (Social + SEO + Custom App/Web)</h4>
+            <span class="tier-duration">⏱ 4 to 6-Week Delivery + Retainer</span>
+            <ul class="tier-list">
+              <li>✓ Bespoke Custom Website or Mobile App Build</li>
+              <li>✓ Full Social Media Handling &amp; Production</li>
+              <li>✓ Top-Rank Google SEO Architecture</li>
+              <li>✓ Automated WhatsApp &amp; CRM Lead Webhooks</li>
+            </ul>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="selectServiceInModal('Full Growth Loop')">Launch Full Growth Loop</button>
+        </div>
+
+        <div class="tier-card">
+          <div>
+            <h4>Custom Software / App Sprint</h4>
+            <span class="tier-duration">⏱ Fixed-Scope Sprint</span>
+            <ul class="tier-list">
+              <li>✓ Custom Web App, SaaS or Mobile App</li>
+              <li>✓ Sub-1s Fast Edge Cloud Infrastructure</li>
+              <li>✓ 100% Source Code &amp; Repo Transfer</li>
+              <li>✓ 30-Day Post-Launch Hypercare</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary btn-sm" onclick="selectServiceInModal('Custom Software Sprint')">Select App Sprint</button>
+        </div>
+      </div>
+
+      <!-- Institutional Terms & SLAs -->
+      <div class="sla-terms-box">
+        <div class="eyebrow" style="margin-bottom: 8px;">Guaranteed Client Protections &amp; SLAs</div>
+        <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Institutional Terms of Service</h3>
+        <p style="font-size: 0.82rem; color: var(--text-secondary);">Every engagement is governed by clear, transparent standards:</p>
+        
+        <div class="sla-grid">
+          <div class="sla-item">
+            <strong>1. 100% Content &amp; Code Ownership</strong>
+            <p>All social media assets, raw video files, code repositories, and credentials belong entirely to you.</p>
+          </div>
+          <div class="sla-item">
+            <strong>2. Guaranteed Posting Consistency</strong>
+            <p>Strict publishing calendar with zero missed release dates and pre-approved quality checks.</p>
+          </div>
+          <div class="sla-item">
+            <strong>3. Sub-1.2s App Performance SLA</strong>
+            <p>Every website or app engineered by Codexa is guaranteed to meet Google Core Web Vitals standards.</p>
+          </div>
+          <div class="sla-item">
+            <strong>4. Mutual NDA &amp; Confidentiality</strong>
+            <p>Your business strategy, customer data, and proprietary algorithms are protected under strict NDA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CASE STUDIES
+         ========================================================================== -->
+    <section class="section container" id="cases">
+      <div class="section-header">
+        <div class="eyebrow"><span class="status-dot"></span> Verified Results</div>
+        <h2 class="section-title">Measurable Real-World Growth</h2>
+        <p class="section-subtitle">How we transform local brands into digital category leaders.</p>
+      </div>
+
+      <div class="tiers-grid">
+        <div class="tier-card">
+          <span class="mono" style="color: var(--brand-emerald); font-size: 1.35rem; font-weight: 700;">+410% Reach</span>
+          <h4 style="margin: 8px 0 4px;">Dora On Wheels</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">FoodTech Brand: Viral Instagram Reels + #1 Local Food SEO + Custom Online Ordering Platform.</p>
+          <span class="mono" style="font-size: 0.7rem; color: var(--text-dim);">Impact: 3.4x monthly direct online orders</span>
+        </div>
+
+        <div class="tier-card">
+          <span class="mono" style="color: var(--brand-emerald); font-size: 1.35rem; font-weight: 700;">#1 Google Rank</span>
+          <h4 style="margin: 8px 0 4px;">Apex Dental &amp; Health</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Healthcare Studio: Local Maps SEO + Educational Reels + Automated Patient Booking App.</p>
+          <span class="mono" style="font-size: 0.7rem; color: var(--text-dim);">Impact: +180 qualified patient leads/month</span>
+        </div>
+
+        <div class="tier-card">
+          <span class="mono" style="color: var(--brand-emerald); font-size: 1.35rem; font-weight: 700;">4.6x Meta ROAS</span>
+          <h4 style="margin: 8px 0 4px;">Nexus Lifestyle</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">Omnichannel E-Commerce: Dynamic social video catalog + sub-800ms custom Next.js storefront.</p>
+          <span class="mono" style="font-size: 0.7rem; color: var(--text-dim);">Impact: +84% checkout conversion rate</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL: ONBOARDING & BRIEF SUBMISSION
+       ========================================================================== -->
+  <div class="modal-backdrop" id="launchModal">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeLaunchModal()">×</button>
+      <div class="eyebrow" style="margin-bottom: 8px;">Start A Project</div>
+      <h3 style="font-size: 1.25rem; margin-bottom: 4px;">Initialize Your Growth &amp; Tech Sprint</h3>
+      <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 18px;">
+        Tell us about your brand. Our Lead Architect and Growth Director will reach out within 2 hours.
+      </p>
+
+      <form id="projectForm" onsubmit="submitProject(event)">
+        <div class="form-group-clean">
+          <label>Company / Brand Name *</label>
+          <input type="text" name="company" id="formCompany" required placeholder="e.g. Dora On Wheels">
+        </div>
+        <div class="form-group-clean">
+          <label>Your Name &amp; Role *</label>
+          <input type="text" name="name" id="formName" required placeholder="e.g. Rahul (Founder / Owner)">
+        </div>
+        <div class="form-group-clean">
+          <label>WhatsApp / Phone Number *</label>
+          <input type="tel" name="phone" id="formPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group-clean">
+          <label>Work Email</label>
+          <input type="email" name="email" id="formEmail" placeholder="rahul@brand.com">
+        </div>
+        <div class="form-group-clean">
+          <label>Primary Required Service</label>
+          <select name="service" id="formServiceSelect">
+            <option value="Social Media Handling & Growth">Social Media Handling &amp; Content Growth</option>
+            <option value="SEO & Search Dominance">SEO &amp; Google Search Dominance</option>
+            <option value="Custom Web & App Development">Custom Web or Mobile App Development</option>
+            <option value="Full 360 Growth Loop" selected>Full Growth Loop (Social + SEO + Custom App)</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit" style="width: 100%; margin-top: 8px;">Submit Scope &amp; Connect Team →</button>
+      </form>
+      <div id="formDone" style="display: none; padding: 14px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--brand-emerald); border-radius: var(--radius-sm); font-size: 0.82rem; color: var(--brand-emerald); margin-top: 12px;">
+        ✓ Thank you! Your brief has been received. Our Lead Growth Strategist will contact you via WhatsApp shortly.
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <strong style="color: #fff; font-family: var(--font-sans);">CODE<span style="color: var(--brand-sky);">XA</span></strong>
+        <span style="margin-left: 8px;">— Social Media, SEO &amp; Custom Software Systems</span>
+      </div>
+      <div>
+        <span>100% Asset Ownership · Guaranteed Consistency · Non-Disclosure Protected</span>
+      </div>
+      <div>
+        <span>© <span id="year"></span> CODEXA. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript (Powerful, Easy To Use, Easy To Manage) -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Central State Object
+    const CodexaState = {
+      videoCount: 16,
+      selectedDeliverables: [],
+      auditScores: { social: 62, seo: 54, dev: 78 }
+    };
+
+    function showToast(text) {
+      const t = document.getElementById('toast');
+      const txt = document.getElementById('toastText');
+      if (t && txt) {
+        txt.textContent = text;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2600);
+      }
+    }
+
+    // Showcase Switcher
+    function switchShowcase(panelId, btn) {
+      document.querySelectorAll('.sc-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.sc-tab-btn').forEach(b => b.classList.remove('active'));
+      const target = document.getElementById(panelId);
+      if (target) target.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    // Workspace Tab Switcher
+    function switchWsTab(tabId, btn) {
+      document.querySelectorAll('.ws-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.ws-tab-btn').forEach(b => b.classList.remove('active'));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+
+      if (btn) {
+        btn.classList.add('active');
+      } else {
+        const found = document.querySelector(`.ws-tab-btn[onclick*="${tabId}"]`);
+        if (found) found.classList.add('active');
+      }
+    }
+
+    // Video Count Slider
+    function updateVideoCount(val) {
+      CodexaState.videoCount = val;
+      const el = document.getElementById('videoCountVal');
+      if (el) el.textContent = `${val} Videos / Month`;
+      calcScope();
+    }
+
+    // Scope Calculator & State Sync
+    function calcScope() {
+      const list = document.getElementById('scopeList');
+      const weeksEl = document.getElementById('estWeeks');
+      const roasEl = document.getElementById('estRoas');
+      if (!list || !weeksEl || !roasEl) return;
+      
+      let totalWeeks = 0;
+      const items = [];
+      
+      // Add social videos
+      items.push(`Social Media Management (${CodexaState.videoCount} Videos/Month)`);
+      totalWeeks += Math.ceil(CodexaState.videoCount / 8);
+
+      document.querySelectorAll('#tab-scope .scope-card-option').forEach(card => {
+        const cb = card.querySelector('input');
+        if (cb.checked) {
+          card.classList.add('selected');
+          items.push(cb.dataset.name);
+          totalWeeks += parseInt(cb.dataset.weeks || '1', 10);
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+
+      CodexaState.selectedDeliverables = items;
+      list.innerHTML = items.map(i => `<li>${i}</li>`).join('');
+      const adjWeeks = Math.max(2, Math.min(6, Math.ceil(totalWeeks * 0.55)));
+      weeksEl.textContent = `${adjWeeks} - ${adjWeeks + 1} Weeks`;
+      roasEl.textContent = `${(3.4 + items.length * 0.35).toFixed(1)}x Reach`;
+
+      // Save state to localStorage
+      try {
+        localStorage.setItem('codexa_client_plan', JSON.stringify({ items, weeks: adjWeeks, videos: CodexaState.videoCount }));
+      } catch (e) {}
+    }
+
+    // WhatsApp Direct Plan Sync
+    function sendScopeToWhatsApp() {
+      const items = CodexaState.selectedDeliverables.join('%0A- ');
+      const text = `Hello CODEXA! I have configured my project plan on your website:%0A%0A*Selected Deliverables:*%0A- ${items}%0A%0A*Estimated Timeline:* ${document.getElementById('estWeeks')?.textContent}%0A%0AI would like to discuss next steps.`;
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+      showToast('Redirecting to WhatsApp with your configured scope!');
+    }
+
+    // Diagnostic Audit Calculator
+    function runAudit() {
+      const bot = document.getElementById('auditBot').value;
+      const ind = document.getElementById('auditInd').value;
+      const title = document.getElementById('auditTitle');
+      const desc = document.getElementById('auditDesc');
+      const roadmap = document.getElementById('auditRoadmap');
+      
+      const sSocial = document.getElementById('scoreSocial');
+      const sSeo = document.getElementById('scoreSeo');
+      const sDev = document.getElementById('scoreDev');
+
+      if (bot === 'social') {
+        sSocial.textContent = "52/100"; sSocial.className = "low";
+        sSeo.textContent = "68/100"; sSeo.className = "";
+        sDev.textContent = "81/100"; sDev.className = "good";
+        title.textContent = "Social Stagnation & Hook Fatigue";
+        desc.textContent = "Content lacks retention hooks and consistent cross-platform distribution.";
+        roadmap.innerHTML = `
+          <li>Produce 16 viral Reels/Shorts with pre-tested engagement hooks.</li>
+          <li>Implement automated DM lead qualification response bot.</li>
+          <li>Synchronize daily publishing across Instagram, YouTube &amp; LinkedIn.</li>
+        `;
+      } else if (bot === 'seo') {
+        sSocial.textContent = "64/100"; sSocial.className = "";
+        sSeo.textContent = "48/100"; sSeo.className = "low";
+        sDev.textContent = "76/100"; sDev.className = "good";
+        title.textContent = "SEO & Local Discovery Gap";
+        desc.textContent = "Competitors capturing 70%+ of local Google searches in your category.";
+        roadmap.innerHTML = `
+          <li>Complete Google Business Profile optimization &amp; Local Maps ranking.</li>
+          <li>Target high-intent buyer keywords with structured schema markup.</li>
+          <li>Deploy sub-1s fast landing pages to convert search traffic into direct inquiries.</li>
+        `;
+      } else {
+        sSocial.textContent = "70/100"; sSocial.className = "good";
+        sSeo.textContent = "65/100"; sSeo.className = "";
+        sDev.textContent = "54/100"; sDev.className = "low";
+        title.textContent = "Custom Web/App Conversion Friction";
+        desc.textContent = "Current customer flow has high drop-off and lacks automated booking/ordering.";
+        roadmap.innerHTML = `
+          <li>Build a bespoke Next.js 15 web or mobile app tailored to your exact workflow.</li>
+          <li>Connect 1-click WhatsApp and automated CRM lead capture.</li>
+          <li>Optimize UI for sub-1s load time and zero checkout friction.</li>
+        `;
+      }
+    }
+
+    function importAuditToPlan() {
+      switchWsTab('tab-scope');
+      showToast('Audit recommendations applied to your project scope!');
+    }
+
+    function showTaskDetail(title, desc) {
+      alert(`[DELIVERABLE CRITERIA]\n\nTask: ${title}\n\nSpecification:\n${desc}`);
+    }
+
+    // Brief Studio
+    function setBrief(type, btn) {
+      document.querySelectorAll('.template-btn-row .template-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const t = document.getElementById('briefText');
+      if (type === 'social') {
+        t.value = "### Project Objective:\nGrow organic social presence with 16+ monthly viral reels/posts, rank in Google Local Maps Top 3, and drive qualified inquiries.\n\n### Target Launch:\n14 days from sprint kickoff.";
+      } else if (type === 'web') {
+        t.value = "### Project Objective:\nBuild a bespoke custom website or mobile application tailored to our exact customer ordering and booking workflow.\n\n### Target Launch:\n30 days from sprint kickoff.";
+      } else {
+        t.value = "### Project Objective:\nDeploy the complete 360° growth loop: Social Media Handling, Google SEO Dominance, and a custom Next.js web application.\n\n### Target Launch:\n30 days from sprint kickoff.";
+      }
+      renderSow();
+    }
+
+    function renderSow() {
+      const val = document.getElementById('briefText')?.value || '';
+      const view = document.getElementById('sowView');
+      if (view) {
+        view.textContent = `CODEXA STATEMENT OF WORK (SOW)\n========================================\n${val}\n\nTerms & SLAs:\n- 100% Content, Code & Account Ownership\n- Guaranteed Posting Schedule & Active Engagement\n- Sub-1.2s Core Web Vitals Guarantee\n- Mutual Non-Disclosure Agreement (NDA) Protected`;
+      }
+    }
+
+    function copySow() {
+      const text = document.getElementById('sowView')?.textContent || '';
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Statement of Work copied to clipboard!');
+      });
+    }
+
+    function downloadSowFile() {
+      const text = document.getElementById('sowView')?.textContent || '';
+      const blob = new Blob([text], { type: 'text/plain' });
+      const anchor = document.createElement('a');
+      anchor.download = 'CODEXA_Statement_of_Work.txt';
+      anchor.href = window.URL.createObjectURL(blob);
+      anchor.click();
+      showToast('Statement of Work downloaded.');
+    }
+
+    // Booking
+    let curDay = "Aug 21";
+    let curTime = "11:00 AM";
+    function setDay(btn, d) {
+      document.querySelectorAll('.cal-clean-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      curDay = d;
+    }
+    function setTime(btn, t) {
+      document.querySelectorAll('.template-btn-row .template-chip').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      curTime = t;
+    }
+    function confirmCall() {
+      const name = document.getElementById('bName').value;
+      const email = document.getElementById('bEmail').value;
+      const tz = document.getElementById('timezoneSelect')?.value || 'IST';
+      if (!name || !email) {
+        alert('Please fill in your name and email.');
+        return;
+      }
+      const s = document.getElementById('bSuccess');
+      if (s) {
+        s.style.display = 'block';
+        s.textContent = `✓ Confirmed for ${curDay} at ${curTime} (${tz})! Invitation dispatched to ${email}.`;
+        showToast('Strategy session scheduled successfully!');
+      }
+    }
+
+    // Modal
+    const modal = document.getElementById('launchModal');
+    function openLaunchModal() {
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeLaunchModal() {
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeLaunchModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLaunchModal();
+    });
+
+    function selectServiceInModal(serviceName) {
+      openLaunchModal();
+      const sel = document.getElementById('formServiceSelect');
+      if (sel) {
+        for (let opt of sel.options) {
+          if (opt.text.toLowerCase().includes(serviceName.toLowerCase()) || opt.value.toLowerCase().includes(serviceName.toLowerCase())) {
+            sel.value = opt.value;
+            break;
+          }
+        }
+      }
+    }
+
+    function submitProject(e) {
+      e.preventDefault();
+      document.getElementById('projectForm').style.display = 'none';
+      document.getElementById('formDone').style.display = 'block';
+      showToast('Project brief submitted successfully!');
+    }
+
+    // Initialize State on Load
+    calcScope();
+    runAudit();
+    renderSow();
+  </script>
+</body>
+</html>
